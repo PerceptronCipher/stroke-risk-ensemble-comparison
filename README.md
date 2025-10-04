@@ -1,0 +1,2 @@
+# stroke-risk-ensemble-comparison
+A comparative analysis of ensemble learning algorithms — Random Forest, Gradient Boosting, XGBoost, LightGBM, and CatBoost — for predicting the likelihood of stroke occurrence using clinical and lifestyle indicators. The project focuses on model performance, interpretability, and efficiency trade-offs using a real-world healthcare dataset.
