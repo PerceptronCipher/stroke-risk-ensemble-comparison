@@ -3,7 +3,6 @@ import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from lightgbm import LGBMClassifier
 from xgboost import XGBClassifier
-from catboost import CatBoostClassifier
 from sklearn.metrics import accuracy_score, classification_report, roc_auc_score
 import os
 
