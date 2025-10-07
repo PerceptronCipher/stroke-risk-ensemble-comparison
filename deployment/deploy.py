@@ -5,7 +5,7 @@ import numpy as np
 from sklearn.preprocessing import StandardScaler
 
 # Load model
-model = joblib.load(r"models\best_model.pkl")
+model = joblib.load("models/best_model.pkl")
 
 # App title
 st.title("🏥 Stroke Risk Prediction")
