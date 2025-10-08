@@ -35,8 +35,9 @@ stroke-risk-ensemble-comparison/
 
 ⚙️ Getting Started
 1️⃣ Clone the Repository
-git clone https://github.com/YOUR_USERNAME/stroke-risk-ensemble-comparison.git
+git clone https://github.com/PerceptronCipher/stroke-risk-ensemble-comparison.git
 cd stroke-risk-ensemble-comparison
+
 
 2️⃣ Install Dependencies
 pip install -r requirements.txt
