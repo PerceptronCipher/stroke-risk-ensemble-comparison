@@ -53,11 +53,7 @@ if st.button("Predict Stroke Risk"):
         'bmi': [bmi],
         'smoking_status': [smoking_map[smoking_status]]
     })
-    
-    # Scale numerical features (same as training)
-    scaler = StandardScaler()
-    input_data[['age', 'avg_glucose_level', 'bmi']] = scaler.fit_transform(input_data[['age', 'avg_glucose_level', 'bmi']])
-    
+
     # Predict
     prediction = model.predict(input_data)[0]
     probability = model.predict_proba(input_data)[0]

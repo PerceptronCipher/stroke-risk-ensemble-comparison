@@ -1,153 +1,137 @@
-# 🏥 Stroke Risk Prediction System  
+🧠 Stroke Risk Prediction System
 
-Hey there! Welcome to my stroke prediction project.  
-This system predicts whether someone might be at risk of having a stroke based on their health data. Pretty exciting stuff!  
+A machine learning–powered system that predicts an individual’s likelihood of stroke occurrence based on key clinical and lifestyle indicators. This project applies ensemble algorithms to healthcare data to identify high-risk patients and support early medical intervention.
 
----
+📘 Overview
 
-## What's This All About?
+Early prediction of stroke risk can significantly reduce mortality and improve preventive care.
+This project leverages patient health metrics such as age, BMI, glucose levels, and smoking habits to develop a data-driven stroke risk classifier.
 
-I grabbed this dataset from Kaggle — packed with patient details like age, smoking habits, glucose levels, and more.  
-Then I applied some machine learning magic to see if we can predict stroke risk.  
+Using an ensemble comparison framework, multiple algorithms were trained, evaluated, and benchmarked to identify the best-performing model.
 
-**Result?** The model achieved around **77% accuracy** in spotting risk patterns.  
-Not too shabby for a solo research project! ⚡  
+Result:
+The Random Forest classifier achieved a ROC-AUC score of 0.77, outperforming other ensemble models (XGBoost, LightGBM, CatBoost, Gradient Boosting).
 
----
-
-## Project Structure
+🏗️ Project Structure
 stroke-risk-ensemble-comparison/
 │
 ├── data/
-│ ├── raw/ # Original data lives here
-│ └── processed/ # Clean, ready-to-use data
+│   ├── raw/           # Original dataset
+│   └── processed/     # Cleaned and transformed data
 │
 ├── src/
-│ ├── preprocessing.py # Cleans and encodes data
-│ ├── train.py # Trains models and selects the best one
-├
-├──deployment
-│ └── deploy.py # Streamlit app for live predictions
-│ └── requirements.txt
+│   ├── preprocessing.py    # Handles cleaning, encoding, and SMOTE balancing
+│   └── train.py            # Trains and compares all ensemble models
+│
+├── deployment/
+│   ├── deploy.py           # Streamlit web interface for live predictions
+│   └── requirements.txt
 │
 ├── models/
-│ └── best_model.pkl # The winning model (Random Forest!)
+│   └── best_model.pkl      # Saved Random Forest model
 │
-├── run_all.py # One-click pipeline runner
-└── requirements.txt # All dependencies
+├── run_all.py              # Automated end-to-end pipeline
+└── requirements.txt        # Dependency list
 
----
-
-## 🚀 Getting Started
-
-### Step 1 — Clone the Repo
-```bash
+⚙️ Getting Started
+1️⃣ Clone the Repository
 git clone https://github.com/YOUR_USERNAME/stroke-risk-ensemble-comparison.git
 cd stroke-risk-ensemble-comparison
-```
 
-
-Step 2 — Install Dependencies
+2️⃣ Install Dependencies
 pip install -r requirements.txt
 
-Step 3 — Get the Data
+3️⃣ Add the Dataset
+data/raw/
 
-Download the Healthcare Stroke Dataset from Kaggle and place it inside data/raw/.
-
-Step 4 — Run the Pipeline
+4️⃣ Run the Complete Pipeline
 python run_all.py
+This will clean the dataset, balance it using SMOTE, train all models, and store the best performer.
 
-Sit back and relax 😎 — the script will clean the data, train all models, and save the best performer.
-
-Step 5 — Launch the Web App
+5️⃣ Launch the Web App
 streamlit run deployment/deploy.py
-streamlit run deployment/deploy.py
-You’ll have a live interactive dashboard to make real-time predictions.
 
-How It Works
-🧹 Data Preparation (preprocessing.py)
 
-Handles missing BMI values and encodes categorical variables.
+🔍 Methodology
+1. Data Preparation
 
-Uses SMOTE to balance the dataset (only ~5% stroke cases originally).
-This ensures the model learns both classes effectively.
+Handled missing BMI values and outliers
 
- Model Training (train.py)
+Encoded categorical variables
 
-Three powerful algorithms were compared:
+Applied SMOTE to balance minority (stroke) cases
 
-Random Forest  (Champion!)
+2. Model Training & Evaluation
 
-XGBoost 
+Compared five ensemble models:
 
-LightGBM 
+Random Forest → Best ROC-AUC = 0.77
 
- Random Forest came out on top with a 0.77 ROC-AUC score —
-pretty strong for medical classification!
+XGBoost
 
- Deployment (deploy.py)
+LightGBM
 
-An interactive Streamlit app lets you:
+Gradient Boosting
 
-Input patient details (age, glucose, BMI, etc.)
+CatBoost
 
-Get instant stroke risk predictions with confidence levels.
+Each model was evaluated on ROC-AUC, precision, recall, and f1-score to determine robustness and clinical reliability.
 
- Key Takeaways
+3. Deployment
 
-Medical data is imbalanced and tricky — careful preprocessing is key.
+Built a Streamlit web application that enables:
 
-Random Forest remains a beast even in 2025 for tabular problems.
+Input of patient parameters (age, glucose, BMI, etc.)
 
-SMOTE boosted recall for minority (stroke) cases significantly.
+Instant stroke risk prediction with probability output
 
-Balancing accuracy and safety matters — better a false positive than a missed stroke risk.
+🧩 Key Insights
 
- Future Enhancements
+Addressing class imbalance is crucial for medical data (SMOTE improved recall).
 
-Try neural networks for non-linear insights
+Random Forest remains a strong baseline for tabular healthcare data.
 
-Engineer new health-related features
+In risk prediction, recall is often more important than overall accuracy — it’s better to flag a potential risk than to miss one.
 
-Hyperparameter tuning with Optuna
+Feature scaling and careful preprocessing significantly impact medical model validity.
 
-Build an ensemble of top 3 models
+🚀 Future Improvements
 
-My Tech Stack
-| Category           | Tools                                 
+Hyperparameter optimization using Optuna
 
-| Data Handling      | `pandas`, `numpy`                     
-| ML Models          | `scikit-learn`, `XGBoost`, `LightGBM` 
-| Imbalance Handling | `imbalanced-learn` (SMOTE)            
-| Web App            | `Streamlit`                           
-| Environment        | Python 3.10+                          
+Feature engineering with domain-specific health variables
 
-🧰 Troubleshooting
+Ensemble stacking for performance boosting
 
-All packages installed?
+Integration with cloud-based MLOps for scalable deployment
 
-Data file in data/raw/?
-
-Using Python 3.10+?
-
-If you still hit a snag, open an issue — I’ll be glad to help.
+🧰 Tech Stack
+| Category           | Tools / Frameworks                                
+ 
+| Data Handling      | `pandas`, `numpy`                                 
+| ML Algorithms      | `scikit-learn`, `XGBoost`, `LightGBM`, `CatBoost` 
+| Imbalance Handling | `imbalanced-learn (SMOTE)`                        
+| Visualization / UI | `Streamlit`                                       
+| Environment        | `Python 3.10+`                                    
 
 
 ⚠️ Disclaimer
 
-This project is built for learning and demonstration purposes only.
-It should never replace professional medical advice.
-Always consult healthcare professionals for real-world decisions.
+This project is intended for educational and research purposes only.
+It should not be used for clinical decision-making or as a substitute for professional medical evaluation.
 
-🩺 Final Thoughts
+📜 License
 
-Building this was a fantastic learning experience!
-Healthcare machine learning is as challenging as it is rewarding.
-The model is designed to assist — not replace — medical expertise.
+MIT License
 
-Stay healthy and keep coding! 
+📊 Dataset Source
 
-License: MIT
-Dataset Credit: Kaggle — Healthcare Stroke Dataset
+Kaggle — Healthcare Stroke Dataset
 
-Built with: Passion, Python, and plenty of learning moments ❤️
+💡 Author
+
+Boluwatife 
+AI Engineer | Machine Learning Researcher | Data Scientist
+📫 adeyemiboluwatife.olayinka@gmail.com
+
+🔗 GitHub Profile
