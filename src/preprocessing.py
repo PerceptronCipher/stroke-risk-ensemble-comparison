@@ -11,7 +11,7 @@ import os
 
 
 # Load dataset
-path = r"C:\Users\USER\My notebook\DataSciencePro\stroke-risk-ensemble-comparison\data\raw\healthcare-dataset-stroke-data.csv"
+path = r"data\raw\healthcare-dataset-stroke-data.csv"
 df = pd.read_csv(path)
 
 # Inspect dataset
@@ -69,5 +69,5 @@ print("\n Class Distribution After SMOTE: \n")
 print(pd.Series(y_train).value_counts())
 
 # Save processed data
-os.makedirs(r"C:\Users\USER\My notebook\DataSciencePro\stroke-risk-ensemble-comparison\data\processed", exist_ok=True)
-joblib.dump((X_train, X_test, y_train, y_test), r"C:\Users\USER\My notebook\DataSciencePro\stroke-risk-ensemble-comparison\data\processed\processed_data.pkl")
+os.makedirs(r"data\processed", exist_ok=True)
+joblib.dump((X_train, X_test, y_train, y_test), r"data\processed\processed_data.pkl")

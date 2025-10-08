@@ -53,14 +53,17 @@ if st.button("Predict Stroke Risk"):
         'bmi': [bmi],
         'smoking_status': [smoking_map[smoking_status]]
     })
-
-    # Predict
-    prediction = model.predict(input_data)[0]
+    
+    # Predict with adjusted threshold
     probability = model.predict_proba(input_data)[0]
+    
+    # Use adjusted threshold for medical context
+    threshold = 0.35
+    prediction = 1 if probability[1] > threshold else 0
     
     # Display results
     st.write("---")
     if prediction == 1:
-        st.error(f"HIGH RISK: Stroke probability is {probability[1]*100:.1f}%")
+        st.error(f"⚠️ HIGH RISK: Stroke probability is {probability[1]*100:.1f}%")
     else:
-        st.success(f"LOW RISK: No stroke probability is {probability[0]*100:.1f}%")
+        st.success(f"✅ LOW RISK: No stroke probability is {probability[0]*100:.1f}%")
