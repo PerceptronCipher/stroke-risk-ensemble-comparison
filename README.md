@@ -14,7 +14,8 @@ The Random Forest classifier achieved a ROC-AUC score of 0.77, outperforming oth
 
 🏗️ Project Structure
 stroke-risk-ensemble-comparison/
-│
+
+'''
 ├── data/
 │   ├── raw/           # Original dataset
 │   └── processed/     # Cleaned and transformed data
@@ -114,7 +115,7 @@ Integration with cloud-based MLOps for scalable deployment
 | Imbalance Handling | `imbalanced-learn (SMOTE)`                        
 | Visualization / UI | `Streamlit`                                       
 | Environment        | `Python 3.10+`                                    
-
+'''
 
 ⚠️ Disclaimer
 
