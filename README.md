@@ -14,8 +14,7 @@ The Random Forest classifier achieved a ROC-AUC score of 0.77, outperforming oth
 
 🏗️ Project Structure
 stroke-risk-ensemble-comparison/
-
-'''
+```
 ├── data/
 │   ├── raw/           # Original dataset
 │   └── processed/     # Cleaned and transformed data
@@ -33,6 +32,7 @@ stroke-risk-ensemble-comparison/
 │
 ├── run_all.py              # Automated end-to-end pipeline
 └── requirements.txt        # Dependency list
+```
 
 ⚙️ Getting Started
 1️⃣ Clone the Repository
@@ -57,57 +57,58 @@ streamlit run deployment/deploy.py
 🔍 Methodology
 1. Data Preparation
 
-Handled missing BMI values and outliers
+- Handled missing BMI values and outliers
 
-Encoded categorical variables
+- Encoded categorical variables
 
-Applied SMOTE to balance minority (stroke) cases
+- Applied SMOTE to balance minority (stroke) cases
 
 2. Model Training & Evaluation
 
-Compared five ensemble models:
+- Compared five ensemble models:
 
-Random Forest → Best ROC-AUC = 0.77
+- Random Forest → Best ROC-AUC = 0.77
 
-XGBoost
+- XGBoost
 
-LightGBM
+- LightGBM
 
-Gradient Boosting
+- Gradient Boosting
 
-CatBoost
+- CatBoost
 
 Each model was evaluated on ROC-AUC, precision, recall, and f1-score to determine robustness and clinical reliability.
 
 3. Deployment
 
-Built a Streamlit web application that enables:
+- Built a Streamlit web application that enables:
 
-Input of patient parameters (age, glucose, BMI, etc.)
+- Input of patient parameters (age, glucose, BMI, etc.)
 
-Instant stroke risk prediction with probability output
+- Instant stroke risk prediction with probability output
 
 🧩 Key Insights
 
-Addressing class imbalance is crucial for medical data (SMOTE improved recall).
+- Addressing class imbalance is crucial for medical data (SMOTE improved recall).
 
-Random Forest remains a strong baseline for tabular healthcare data.
+- Random Forest remains a strong baseline for tabular healthcare data.
 
-In risk prediction, recall is often more important than overall accuracy — it’s better to flag a potential risk than to miss one.
+- In risk prediction, recall is often more important than overall accuracy — it’s better to flag a potential risk than to miss one.
 
-Feature scaling and careful preprocessing significantly impact medical model validity.
+- Feature scaling and careful preprocessing significantly impact medical model validity.
 
 🚀 Future Improvements
 
-Hyperparameter optimization using Optuna
+- Hyperparameter optimization using Optuna
 
-Feature engineering with domain-specific health variables
+- Feature engineering with domain-specific health variables
 
-Ensemble stacking for performance boosting
+- Ensemble stacking for performance boosting
 
-Integration with cloud-based MLOps for scalable deployment
+- Integration with cloud-based MLOps for scalable deployment
 
 🧰 Tech Stack
+```
 | Category           | Tools / Frameworks                                
  
 | Data Handling      | `pandas`, `numpy`                                 
@@ -115,7 +116,7 @@ Integration with cloud-based MLOps for scalable deployment
 | Imbalance Handling | `imbalanced-learn (SMOTE)`                        
 | Visualization / UI | `Streamlit`                                       
 | Environment        | `Python 3.10+`                                    
-'''
+```
 
 ⚠️ Disclaimer
 
@@ -132,7 +133,7 @@ Kaggle — Healthcare Stroke Dataset
 
 💡 Author
 
-Boluwatife 
+Boluwatife Adeyemi
 AI Engineer | Machine Learning Researcher | Data Scientist
 📫 adeyemiboluwatife.olayinka@gmail.com
 
